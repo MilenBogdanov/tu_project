@@ -264,3 +264,232 @@ document.addEventListener("DOMContentLoaded", function () {
 </section>
 
 <?php include 'includes/footer.php'; ?>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+    }
+
+    .close {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .close:hover { color: black; }
+
+    .btn-login {
+        background-color: #ffcc00;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-login:hover {
+        background-color: #005b56;
+    }
+
+    .show-more {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .show-more-btn {
+        background-color: #f7b500;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .show-more-btn:hover {
+        background: #e6b800;
+        transform: scale(1.05);
+    }
+
+    .no-more-cars {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #555;
+    }
+    
+    .contact-help {
+    background-color: #f7b500;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contact-help h2 {
+    color: #1a1a1a;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.contact-help p {
+    font-size: 20px;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+.contact-phone {
+    font-size: 42px;
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contact-buttons a {
+    padding: 12px 24px;
+    border: 2px solid #1a1a1a;
+    font-weight: bold;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.contact-buttons a:hover {
+    background-color: #222;
+    color: #f7b500;
+}
+
+
+.vip-cars {
+    background-color: #151515;
+    color: #fff;
+    padding: 30px 0;
+}
+
+.vip-cars .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vip-cars h2 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #f7b500;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.vip-cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.vip-car {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.vip-car:hover {
+    transform: translateY(-5px);
+}
+
+.vip-car img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+}
+
+.vip-car-content {
+    padding: 20px;
+}
+
+.vip-car h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #bd8b02;
+}
+
+.vip-car p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: black;
+}
+
+.vip-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0a9396;
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.vip-rent-btn {
+    display: inline-block;
+    background-color: #f7b500;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.vip-rent-btn:hover {
+    background-color: #e0a000;
+}
+
+.no-vip-cars {
+    color: red;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+</style>
