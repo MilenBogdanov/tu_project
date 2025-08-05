@@ -167,28 +167,28 @@ while ($rental = $result_rentals->fetch_assoc()) {
     const pricePerDay = <?php echo $car['price_per_day']; ?>;
 
     function calculateTotalPrice() {
-    const pickup = document.getElementById('pickup_date').value;
-    const dropoff = document.getElementById('return_date').value;
-    const totalDisplay = document.getElementById('total-price');
+        const pickupVal = document.getElementById('pickup_date').value;
+        const returnVal = document.getElementById('return_date').value;
+        const totalDisplay = document.getElementById('total-price');
 
-    if (pickup && dropoff) {
-        const start = new Date(pickup);
-        const end = new Date(dropoff);
+        if (pickupVal && returnVal) {
+            const start = new Date(pickupVal);
+            const end = new Date(returnVal);
 
-        if (end >= start) {
-            const diffTime = end.getTime() - start.getTime();
-            let days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            days = Math.max(1, days);
-            const total = days * pricePerDay;
+            if (end >= start) {
+                const diffTime = end.getTime() - start.getTime();
+                let days = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                days = Math.max(1, days);
 
-            totalDisplay.textContent = Total Price: ${total.toFixed(2)} BGN for ${days} day(s);
+                const total = days * pricePerDay;
+                totalDisplay.textContent = `Total Price: ${total.toFixed(2)} BGN for ${days} day(s)`;
+            } else {
+                totalDisplay.textContent = '';
+            }
         } else {
             totalDisplay.textContent = '';
         }
-    } else {
-        totalDisplay.textContent = '';
     }
-}
 
     document.getElementById('pickup_date').addEventListener('change', calculateTotalPrice);
     document.getElementById('return_date').addEventListener('change', calculateTotalPrice);
